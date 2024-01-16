@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Dosis:wght@800&family=Josefin+Sans:wght@300&family=Merriweather&family=Noto+Serif:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Bitter:ital,wght@1,100;1,300&family=Bungee+Outline&family=Dancing+Script:wght@400;700&family=Diphylleia&family=Dosis:wght@800&family=Josefin+Sans:wght@300&family=Londrina+Outline&family=Merriweather&family=Noto+Serif:wght@300;400&family=Open+Sans:wght@300&family=PT+Sans:wght@700&family=Poppins:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Memento: Online Flower Gift Shop </title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+      font-family: 'Josefin Sans', sans-serif;
+      margin: -30% 0 0;
+      z-index: -1;
+    }
+
+      header {
+          background-color: #FFF;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          width: 100%;
+          display: flex;
+          justify-content: space-between; 
+          align-items: center; 
+          box-shadow: 0 8px 2px -2px #F8DFD4;
+          position: fixed;
+          top: 0;
+          z-index: 1;
+      
+        }
+    .menu {
+        font-size: 18px;
+        cursor: pointer;
+        order: -1;
+        color: #000;
+        font-family: 'Poppins', sans-serif;
+        margin-left: 20px;
+
+    }
+    .menu:hover{
+        color: #F8DFD4;
+        transition-duration: 0.2s;
+    }
+    h2{
+        font-size: 22px;
+        color: black;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    h2:hover{
+       color: white;
+        transition-duration: 0.3s;
+    }
+    .icon {
+        order: 2;
+        color: #000;
+        letter-spacing: 5px;
+        font-size: 20px;
+        padding-right: 20px;
+        -webkit-text-stroke: 1px white;
+        display: inline-block;
+    }
+    .navbar {
+        height: 100vh;
+        width: 0;
+        display: inline-flex;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        background-color: #F8DFD4;
+        padding-top: 60px;
+        color: #FFF;
+         font-family: 'Poppins', sans-serif;
+    }
+    .navbar .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 30px;
+        margin-left: 50px;
+        cursor: pointer;
+        color: black;
+      }
+      .navbar .closebtn:hover {
+        color: white;
+        transition-duration: 0.2s;
+      }
+    .navbar ul li {
+        list-style: none;
+        padding-top: 50px;
+        text-align: justify;
+    }
+    .navbar ul li a {
+        color: black;
+        text-decoration: none;
+        box-sizing: border-box;
+        padding: 25px;
+        padding-left: 40px; 
+        padding-right: 100px;
+    }
+    .navbar ul li a:hover {
+        background-color: white;
+        transition: 0.4s ease;
+    }
+    .navbar ul li a .fa-solid{
+        width: 30px;
+        font-size: 20px;
+
+    }
+    .navbar .contact-icon ul li a{
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    aside {
+        height: 100vh;
+        width: 300px;
+        margin: -50px;
+        z-index: 200;
+    }
+
+hr.leaves {
+      border: none;
+      width: 100%;
+      height: 130px;
+      background-image: url('https://i.ibb.co/Bj1Tqby/as-1-removebg-preview.png');
+      background-size: contain;
+      background-repeat: repeat-x;
+      margin-top: -7%;
+    }
+    .product-container {
+      max-width: 80%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-image {
+      max-width: 40%;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-details {
+      max-width: 55%;
+      margin-left: 20px;
+    }
+
+    .product-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .product-description {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      margin-top: 20px;
+    }
+
+    .product-price {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      text-align: center;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .add-to-cart {
+      display: flex;
+      align-items: center;
+
+    }
+
+    .quantity-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-container button {
+      margin: 0 2px;
+      background-color: white;
+      color: black;
+      border: none;
+    }
+
+    .add-to-cart-btn {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    p{
+      text-align: center;
+    }
+       footer {
+            position: relative;
+            background-color: #FFDFDF;
+            color: #214358;
+            padding: 50px 0;
+            width: 100%;
+            margin-top: 50px; 
+}
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #214358;
+            text-align: center;
+            margin-right: 40px;
+        }
+
+        .footer-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #214358;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .footer-section a {
+            color: #214358;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .footer-section-follow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-section-follow h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #214358;
+        }
+
+        .footer-section-follow a {
+            margin: 5px;
+            color: #214358;
+            text-decoration: none;
+            font-size: 24px;
+            display: inline-flex;
+        }
+        .footer-logo img{
+          width: 10px;
+          height: 80px;
+        }
+        .contact{
+          font-size: 18px;
+        }
+        .footer-section-follow a:hover {
+            color: #00000;
+            transition-duration: 0.2s;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #214358;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 30px;
+            }
+        }
+        p{
+            font-weight: bolder;
+            text-align: center;
+        }
+        p .contact{
+            text-align: left;
+        }
+        .back-button {
+            position: absolute;
+            top: 1670%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(to right, #FF90BC, #FFDFDF);
+              border: none;
+              border-radius: 5px; 
+              padding: 20px 90px;
+              font-size: 16px;
+              color: white;
+              cursor: pointer;
+              transition: all 0.2s ease-in-out; 
+              font-style: 'Josefin Sans', sans-serif;
+              font-size: 15px;
+        } 
+
+    .back-button:hover {
+      background: linear-gradient(to right, #FFDFDF, #FF90BC); 
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15); 
+    }
+
+    a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img class="logo" src="https://i.ibb.co/88GtqRH/415255472-692926916359686-700639682578098357-n-1-1-1.png">
+
+    <span class="menu" onclick="openNav()"><p class="icon"><i class="fa-solid fa-bars"></p></i> Menu </span> 
+    <p class= "icon"> <i class="fa-solid fa-magnifying-glass"></i> <i class="fa-solid fa-cart-shopping"></i> </p>
+</header>
+
+
+    <aside>
+    <div id="sidebar" class="navbar">
+<nav>
+        <ul class="options">
+          <a class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></a>
+          <h2 align="center"> Menu </h2>
+</span>    <li><a href="Home.html"><i class="fa-solid fa-house"></i> Home</li></a>
+            <li><a href="ProductDisplay.html"><i class="fa-solid fa-bag-shopping"></i> Products </a></li>
+            <li><a href="AboutUs.html"><i class="fa-solid fa-heart"></i> About Us </a></li>
+            <li><a href="FAQS.html"><i class="fa-solid fa-shop"></i> FAQ's </a></li>
+            <li><a href="RegisterForm.html"><i class="fa-solid fa-heart"></i> Register </a></li>
+        </ul>
+</nav>
+    </div>
+</aside>
+<hr class="leaves">
+
+
+<a name="product1"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/mSxPJfy/16-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">Purple Majesty</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱300.00</b></div>
+      <p><b> A Three-stemed Tulips Flower Bouquet</b><br><br>
+      <hr>
+        <i>Dozens of deep purple tulips, meticulously selected for their vibrant color and flawless form.
+                Exquisitely wrapped in luxurious purple paper for a polished presentation.
+    Perfect for expressing love, appreciation, or simply adding a touch of elegance to any space.
+    Sure to delight the recipient and create lasting memories.</i></p>
+      <hr>
+    </div>
+    </div>
+    <a href="ProductDisplay.html"> <button class="back-button">Back </button> </a>
+  </div>
+</div>
+
+<br>
+
+<a name="product2"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/7NPMDwF/4-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Pastel Perfection</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱340.00</b></div>
+      <p><b> Ten-stemed Tulips Flower Bouquet</b><br><br>
+      <hr>
+        <i>Soft as a whisper and sweet as spun sugar, this bouquet of blushing pink and ivory tulips is a delightful expression of joy and tenderness. Send smiles and warm wishes with this captivating arrangement.
+</i></p>
+      <hr>
+    </div>
+    </div>
+     <a href="ProductDisplay.html"> <button class="back-button">Back </button> </a>
+  </div>
+</div>
+
+<a name="product3"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/9wPj2Qf/17-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Scarlet Kisses </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱360.00</b></div>
+      <p><b> Red Tulips Flower Bouquet</b><br><br>
+      <hr>
+        <i>This stunning bouquet of red tulips is hand-tied and wrapped in a luxurious red satin ribbon. The tulips are a symbol of love, passion, and perfect for any occasion, from a romantic gesture to a thoughtful gift for a friend or family member. The satin ribbon adds a touch of elegance and makes this bouquet a truly special gift.
+
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+</div>
+
+<a name="product4"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/WyZCRrx/8-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Mystical Lavender </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱360.00</b></div>
+      <p><b> Purple Tulips Flower Bouquet</b><br><br>
+      <hr>
+        <i>This bouquet is a beautiful and ethereal mix of soft purple and white flowers, like an amethyst gemstone sparkling in the moonlight. The delicate blooms exude a sense of peace and tranquility, making this bouquet perfect for a sympathy gift or a gesture of well-being. 
+
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+</div>
+
+<a name="product5"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/gyLY663/2-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Ruby Flare</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱399.00</b></div>
+      <p><b> Single Red Rose Flower Bouquet</b><br><br>
+      <hr>
+        <i>More than just a rose, it's a masterpiece. Every curve of the petal, every glint of glitter, every strand of satin ribbon - all meticulously crafted to capture the essence of timeless elegance. This single red rose bouquet is a work of art, a declaration of love and luxury in its purest form.
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+  <a name="product6"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/ZfVr2Yk/5-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Vintage Bloom</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱499.00</b></div>
+      <p><b> Pink & Gold Rose Petals Bouquet</b><br><br>
+      <hr>
+        <i> Soft pink and gold roses peek out from a bed of vintage newsprint, creating a delicate and romantic bouquet. A quiet gesture of love and affection.
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+   <a name="product7"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/khkJrKd/7-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Luscious Lilac</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱499.00</b></div>
+      <p><b> Lilac and Ivory Colored Rose Flower Bouquet</b><br><br>
+      <hr>
+        <i> A whisper of mauve, a kiss of satin. This ethereal bouquet dances with delicate  roses, their velvety petals caressed by shimmering ribbons. A touch of romance, a hint of whimsy, perfect for capturing hearts and celebrating special moments.
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+   <a name="product8"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/VVJX97Q/6-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Blue Hue</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱199.00</b></div>
+      <p><b> Single Blue-Colored Rose Flower Bouquet</b><br><br>
+      <hr>
+        <i> Forget the dozen roses, this single blue rose is all you need to say "I love you." Its uniqueness and symbolism speak volumes, making it a truly special gift for the one you love.
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+   <a name="product9"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/9WF5xJb/19-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Floral Amethyst</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱349.00</b></div>
+      <p><b> Single Deep Purple-Colored Rose Flower Bouquet</b><br><br>
+      <hr>
+        <i> Let moonlight serenade your senses with this enchanting bouquet. A single handcrafted rose, woven from shimmering purple petals and tied with silken ribbons, radiates pure sophistication.
+</i></p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+     <a name="product10"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/61TMbcQ/13-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Tender Blush</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱339.00</b></div>
+      <p><b> Three Baby Pink-Colored Roses Bouquet</b><br><br>
+      <hr>
+        <i> Petite perfection unfolds in this charming bouquet. Three baby pink roses, each a masterpiece of nature's artistry, bloom amidst a swirl of ribbons, ready to steal the show with their simple elegance.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+     <a name="product11"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/0MfPCCk/12-removebg-preview-1.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Sunlit Elegance </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱419.00</b></div>
+      <p><b> Five Pastel-Colored Roses Bouquet</b><br><br>
+      <hr>
+        <i> Five soft blossoms, cradled in satin ribbons, dance with the hues of a summer sunrise. Pale pink and pale yellow roses whisper secrets of joy, their delicate petals kissed by the golden brush of dawn.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+         <a name="product12"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/GJRHFSZ/9-removebg-preview-1.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Fairy Dusk </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱419.00</b></div>
+      <p><b> Pink and Violet Rose Flower Bouquet</b><br><br>
+      <hr>
+        <i> When words fail, let Fairy Dusk speak for you. Whether whispering sweet nothings, expressing heartfelt gratitude, or celebrating a special moment, this enchanting bouquet conveys emotion with every petal. A blush of pink for affection, a deep rose for passion, and a dreamy violet for whispered secrets—all entwined in a graceful embrace of satin. Let Fairy Dusk ignite imaginations and touch hearts.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+       <a name="product13"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/v3Kw4p4/15-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Crimson Pearls</div>
+    <div class="product-description">
+      <div class="product-price"><b>₱449.00</b></div>
+      <p><b> Rose-Gold Satin Flower Bouquet</b><br><br>
+      <hr>
+        <i>  This bouquet is not just passion, but elegance redefined. Dark roses, their velvety depths holding untold secrets, entwine with pearls, their ivory elegance a stark contrast that only heightens the drama. Bold accents of white and gold foliage add a touch of mystery, making this bouquet a passionate declaration, perfect for igniting hearts and lighting up any moment.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+     <a name="product14"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/wJ45HdB/14-removebg-preview-1.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Chic Jade </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱449.00</b></div>
+      <p><b> Jade and Yellow Pastels Satin Flower Bouquet</b><br><br>
+      <hr>
+        <i>  The captivating contrast between the jade green roses and the pale yellow roses creates a visually stunning spectacle that's both modern and timeless.
+Green roses embody renewal, good luck, and abundance, while yellow roses represent joy, friendship, and new beginnings. This bouquet carries a powerful message of optimism and fresh starts.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+     <a name="product15"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/xLH1RPD/sa-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Soft Charm </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱449.00</b></div>
+      <p><b> Soft Pink Satin Flower Bouquet</b><br><br>
+      <hr>
+        <i>  Each petal, delicate as spun silk, unfurls, revealing a blushing heart that whispers of perfect romance. This symphony of soft hues, like rose quartz kissed by the dawn, sits nestled in a timeless embrace. The pale hue also signifies hope, purity, and fresh starts. Light pink roses are perfect for graduations, baby showers, housewarmings, or any occasion that marks a new chapter.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+
+    <a name="product16"></a>
+<div class="product-container">
+  <div class="product-image">
+    <img src="https://i.ibb.co/FbsNSjZ/1-removebg-preview.png" alt="Product Image">
+  </div>
+  <div class="product-details">
+    <div class="product-title"> Enchanted Jewels </div>
+    <div class="product-description">
+      <div class="product-price"><b>₱499.00</b></div>
+      <p><b> Luminous Deep Purple Satin Flower Bouquet with LED lights</b><br><br>
+      <hr>
+        <i>   This regal bouquet, draped in deepest purple, commands attention like a jewel-encrusted crown. Each bloom, a velvety gem, glows with inner fire, illuminating your presence with an air of mystery and sophistication.
+</i></p>
+      <hr>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+</div>
+
+<script>
+    function openNav() {
+      document.getElementById("sidebar").style.width = "22%";
+    }
+   
+    function closeNav() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+    </script>
+<footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <img class= "footer-logo" src="https://i.ibb.co/zFwmqB1/Memento-Logo.png">
+        </div>
+        <div class="footer-section contact">
+            <h2>Help & Support</h2>
+
+          <p class="contact"><a href="termsandcondition.html" target="_blank">Terms and Conditions</a>| 
+             <br>
+              <a href="Faqs.html" target="_blank">FAQs</a>
+          </p>
+        </div>
+        <div class="footer-section follow">
+            <h2>Connect w/ Us</h2>
+            
+          <p class="contact">  <a href="https://www.facebook.com/profile.php?id=61555681259250" target="_blank"><i class="fa-brands fa-square-facebook"></i>&nbsp Memento</a> </p>
+            <br>
+          <p class="contact"> <i class=" fa-solid fa-phone"> </i>&nbsp 09613936758 </p></a>
+            <br>
+           <p class="contact"> <i class="fa-solid fa-envelope"></i>&nbsp memento.satin@gmail.com</a></p>
+        </div>
+    </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Memento Flower Gift Shop. All rights reserved.</p>
+        </div>
+</footer>
+
+</body>
+</html>
