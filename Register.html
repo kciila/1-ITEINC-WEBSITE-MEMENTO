@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-witdh, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="forms.css" >
+        <title> Registration Form</title>
+<style type="text/css">
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url('flower.jpg') no-repeat;
+    background-size: ;
+    background position: center;
+    
+}
+body{
+   background: linear-gradient(70deg, #E9C5C9,white, #BBD5F0, #F7D8AA);
+   background-size: 500% 10%;
+   animation: bgbody 6s ease infinite;
+   font-family: "lato", sans-serif;
+}
+@keyframes bgbody{
+0% {
+   background-position: 20% 50%;
+}
+50% {
+   background-position: 100% 50%;
+}
+100% {
+   background-position: 20% 50%;
+}
+}
+header {
+   position: fixed;
+   top: 0;
+   left: 470px;
+   width: 100%;
+   padding: 20px 100px;
+   display: flex;
+   justify-content: space space-between;
+   align-items: center;
+   z-index: 99;
+   
+}
+
+.logo {
+   font-size: 1.5em;
+   color: black;
+   user-select: none;
+}
+h1 {
+   color: #3b444b;
+}
+.wrapper {
+   position: relative;
+   width: 400px;
+   height: 440px;
+   background: transparent;
+   border: 2px solid rgba(255, 255, 255, 0.5);
+   border-radius: 20px;
+   backdrop-filter: blur(20px);
+   box-shadow: 0 0 30px rgba(0, 0 , 0, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden; 
+  transition: height .2s ease;
+}
+.wrapper .form-box {
+   width: 100%;
+   padding: 40px;
+
+}
+.form-box h2 {
+   font-size: 2em;
+   color: #3b444b;
+   text-align: center;
+}
+.input-box {
+   position: relative;
+   width: 100%;
+   height: 50px;
+   border-bottom: 2px solid #162938;
+   margin: 30px 0;
+
+}
+.input-box label {
+   position: absolute;
+   top: 50%;
+   left: 5px;
+   transform: translateY(-50%);
+   font-size: 1em;
+   color: #3b444b;;
+   font-weight: 500;
+   pointer-events: none;
+   transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+   top: -5px;
+}
+.input-box input {
+   width: 100%;
+   height: 100%;
+   background: transparent;
+   border: none;
+   outline: none;
+}
+.remember-forgot {
+   font-size: .9em;
+   color: #3b444b;
+   font-weight: 500;
+   margin: -15px 0 15px;
+   display: flex;
+   justify-content: space-between;
+
+}
+.remember-forgot label input {
+   accent-color: #e9c5c9;
+   margin-right: 3px;
+
+}
+.remember-forgot a {
+   color: #3b444b;
+   text-decoration: none;
+}
+.remember-forgot a:hover {
+   text-decoration: underline;
+}
+.button {
+   width: 100%;
+   height: 50px;
+   background: #e9c5c9;
+   border: none;
+   outline: none;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 1em;
+   font-weight: 500;
+}
+.log-register {
+   font-size: .9em;
+   color: black;
+   text-align: center;
+   font-weight: 500;
+   margin: 25px 0 10px;
+}
+.log-register p a {
+   color: #3b444b;
+   text-decoration: none;
+   font-weight: 600;
+} 
+.log-register p a:hover {
+  text-decoration: underline;
+} 
+.wrapper .form-box.log {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.log {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.registration {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.wrapper.active {
+  height: 520px;
+}
+
+.wrapper.active .form-box.registration {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+.container {
+   text-align: left;
+   padding: 80px;
+   border: black;
+   background-color: transparent;
+   font-size: 2em;
+   font-weight: 500;
+   cursor: default;
+   text-decoration: none;
+   pointer-events: none;
+
+}
+h3 {
+   color: #bbd5f0 ;
+}
+.shopnow {
+   text-align: left;
+   float: left;
+   border-radius: 20px;
+   padding: 10px;
+   
+
+}
+
+</style>       
+
+    </head>
+      <body>
+  <header>
+      <h1 class="header"> Memento </h1>
+  </header>
+  
+      <div class="container">
+        <h1> Timeless <span>Memories</span> </h1>
+        <h3>in Every Petal</h3>
+    </div>
+   
+    
+    </div>
+  <div class="wrapper">
+    <div class="form-box log in">
+        <h2> Log In </h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="email" required>
+                <label> Email </label>
+            </div>
+            <div class="input-box">
+             <span class="icon"></span>
+                <input type="password" required>
+                <label> Password </label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"></label>
+                <label>Save email and password</label><a href="#"> Forgot Password?</a>
+            </div>
+            <button type="submit" class="button">LOG IN</button>
+            <div class="log-register">
+                <p>Dont have an account?<a href="#" class="register-link">Register</p>
+            </div>
+        </form>
+    </div>
+    <div class="form-box registration">
+        <h2> Registration </h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="username" required>
+                <label> Username </label>
+            </div>
+             <div class="input-box">
+                <span class="icon"></span>
+                <input type="email" required="@">
+                <label> Email </label>
+            </div>
+            <div class="input-box">
+             <span class="icon"></span>
+                <input type="password" required>
+                <label> Password </label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"></label>
+                <label>agree to the terms & conditions</label>
+            </div>
+            <button type="submit" class="button">Register</button><a href=""></a>
+            <div class="log-register">
+                <p>Already have an account?<a href="#" class="log-link">Log In</p>
+            </div>
+        </form>
+    </div>
+  </div> 
+
+  
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.wrapper');
+  const logLink = document.querySelector('.log-link');
+  const registerLink = document.querySelector('.register-link');
+  const registrationForm = document.querySelector('.form-box.registration');
+
+  logLink.addEventListener('click', () => {
+    wrapper.classList.remove('active');
+  });
+
+  registerLink.addEventListener('click', () => {
+    wrapper.classList.add('active');
+    registrationForm.classList.add('active');
+  });
+});
+</script>
+  
+
+    </body>
+</html>
